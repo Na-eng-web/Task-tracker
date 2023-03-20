@@ -1,0 +1,10 @@
+.outer {
+  width: 5rem;
+  height: 1rem;
+  border: 1px solid;
+}
+
+.inner {
+  height: 1rem;
+  background-color: coral;
+}
