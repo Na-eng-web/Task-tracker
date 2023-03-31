@@ -1,10 +1,11 @@
 .outer {
   width: 5rem;
-  height: 1rem;
+  height: 1.5rem;
   border: 1px solid;
 }
 
 .inner {
-  height: 1rem;
+  height: 1.38rem;
   background-color: coral;
+  width: 100%;
 }

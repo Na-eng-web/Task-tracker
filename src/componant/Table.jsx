@@ -27,15 +27,32 @@ const Table = (props) => {
               <td>{dat.Task}</td>
               <td>{dat.Priority}</td>
               <td>
-                {dat.Time}
-                {" " + dat.timevalue}
                 <Timer time={dat.Time} />
               </td>
-              <td>status</td>
-              <td>edit</td>
               <td>
                 <button
-                  onClick={() => props.handleClick(dat.time)}
+                  onClick={() => {
+                    return (
+                      props.setcompleted([...props.completed, dat]),
+                      props.handleClick(dat.time)
+                    );
+                  }}
+                  className="btn btn-success"
+                >
+                  Complete
+                </button>
+              </td>
+              <td>
+                <button className="btn btn-warning">Edit</button>
+              </td>
+              <td>
+                <button
+                  onClick={() => {
+                    return (
+                      props.setDeleted([...props.deleted, dat]),
+                      props.handleClick(dat.time)
+                    );
+                  }}
                   className="btn btn-outline-danger"
                 >
                   Delete

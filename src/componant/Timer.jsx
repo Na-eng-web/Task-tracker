@@ -12,10 +12,11 @@ const Timer = (props) => {
     const id = setInterval(timer, 1000);
     return () => clearInterval(id);
   }, [time]);
-
+  const progress = Math.min((time / props.time) * 100, 100);
   return (
     <div className={Style.outer}>
-      <div className={Style.inner} style={{ width: `${time}%` }}>
+      {/* this logic need to be rectify */}
+      <div className={Style.inner} style={{ width: `${progress}%` }}>
         {time}
       </div>
     </div>
