@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Style from "../style/Timer.module.css";
+import { UseTimer } from "./Contex/contex";
 
 const Timer = (props) => {
-  const [time, settime] = useState(parseInt(props.time));
-  const timer = () => settime(time - 1);
-  useEffect(() => {
-    if (time <= 0) {
-      return;
-    }
-
-    const id = setInterval(timer, 1000);
-    return () => clearInterval(id);
-  }, [time]);
-  const progress = Math.min((time / props.time) * 100, 100);
+  const { Final, SetTim } = UseTimer();
+  SetTim(props.time);
   return (
     <div className={Style.outer}>
       {/* this logic need to be rectify */}
-      <div className={Style.inner} style={{ width: `${progress}%` }}>
-        {time}
+      <div className={Style.inner} style={{ width: `${Final}%` }}>
+        {Math.floor(Final)}
       </div>
     </div>
   );

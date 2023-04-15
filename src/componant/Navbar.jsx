@@ -1,19 +1,19 @@
-import React from "react";
 import Style from "../style/Navbar.module.css";
-
-const Navbar = ({ setopen }) => {
+import { NavLink } from "react-router-dom";
+const Navbar = () => {
   return (
     <div className={Style.Navbar}>
-      <h2 style={{ cursor: "pointer" }} onClick={() => setopen(0)}>
-        Home
-      </h2>
-      <h2 style={{ cursor: "pointer" }} onClick={() => setopen(1)}>
-        Done task
-      </h2>
-      <h2>Pending task</h2>
-      <h2 style={{ cursor: "pointer" }} onClick={() => setopen(2)}>
-        Deleted task
-      </h2>
+      <NavLink to={"/Navbar"}>
+        <h2 style={{ cursor: "pointer" }}>Home</h2>
+      </NavLink>
+      <NavLink to={"/DoneTask"}>
+        <h2 style={{ cursor: "pointer" }}>Done task</h2>
+      </NavLink>
+      <NavLink to={"/DeletedTask"}>
+        <h2 style={{ cursor: "pointer" }}>Deleted task</h2>
+      </NavLink>
+
+      <h2>Pending task </h2>
     </div>
   );
 };

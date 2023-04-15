@@ -3,7 +3,6 @@ import React from "react";
 const Completed = (props) => {
   return (
     <div>
-      <h1>Completed</h1>
       <table className="table">
         <thead>
           <tr>

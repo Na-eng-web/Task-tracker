@@ -3,7 +3,6 @@ import React from "react";
 const Deleted = (props) => {
   return (
     <div>
-      <h1>Deleted task</h1>
       <table className="table">
         <thead>
           <tr>

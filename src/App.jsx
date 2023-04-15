@@ -4,6 +4,7 @@ import Table from "./componant/Table";
 import Deleted from "./componant/task/Deleted";
 import Completed from "./componant/task/Completed";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -14,27 +15,30 @@ const App = () => {
   return (
     <div>
       <h1>Task Tracker </h1>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/Navbar"
+          element={
+            <>
+              <Form data={data} setData={setData} />
 
-      <Navbar setopen={setopen} />
-
-      {open === 0 && (
-        <>
-          <Form data={data} setData={setData} />
-
-          <Table
-            setDeleted={setDeleted}
-            deleted={deleted}
-            setcompleted={setcompleted}
-            completed={completed}
-            data={data}
-            handleClick={(no) => {
-              setData(data.filter((a) => a.time !== no));
-            }}
-          />
-        </>
-      )}
-      {open === 1 && <Completed completed={completed} />}
-      {open === 2 && <Deleted deleted={deleted} />}
+              <Table
+                setDeleted={setDeleted}
+                deleted={deleted}
+                setcompleted={setcompleted}
+                completed={completed}
+                data={data}
+                handleClick={(no) => {
+                  setData(data.filter((a) => a.time !== no));
+                }}
+              />
+            </>
+          }
+        />
+        <Route path="/DoneTask" element={<Completed completed={completed} />} />
+        <Route path="/DeletedTask" element={<Deleted deleted={deleted} />} />
+      </Routes>
     </div>
   );
 };
